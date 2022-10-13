@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wildau_OOP", "Wildau_OOP.csproj", "{39131036-B762-44F1-9852-E4659A738847}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioStoreLogic", "AudioStoreLogic\AudioStoreLogic.csproj", "{5E40C577-6365-49CC-83F8-5ECC1A5F60F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioStore", "AudioStore\AudioStore.csproj", "{38BFF8FC-D051-40FE-A85A-2A46E1FD04FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{39131036-B762-44F1-9852-E4659A738847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39131036-B762-44F1-9852-E4659A738847}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39131036-B762-44F1-9852-E4659A738847}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39131036-B762-44F1-9852-E4659A738847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E40C577-6365-49CC-83F8-5ECC1A5F60F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E40C577-6365-49CC-83F8-5ECC1A5F60F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E40C577-6365-49CC-83F8-5ECC1A5F60F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E40C577-6365-49CC-83F8-5ECC1A5F60F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BFF8FC-D051-40FE-A85A-2A46E1FD04FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BFF8FC-D051-40FE-A85A-2A46E1FD04FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BFF8FC-D051-40FE-A85A-2A46E1FD04FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BFF8FC-D051-40FE-A85A-2A46E1FD04FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
