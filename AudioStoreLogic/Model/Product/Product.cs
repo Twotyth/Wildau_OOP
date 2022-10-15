@@ -3,26 +3,44 @@ namespace AudioStoreLogic.Model.Product;
 internal abstract class Product
 {
     internal string Id = Guid.NewGuid().ToString();
-    private float _price;
-    private float _discount;
+    private double _price;
+    private int _discount;
+    internal IEnumerable<MaterialTypes> materials;
 
-    internal float Price
+    internal double Price
     {
         get => _price;
         set => _price = value > 0 
             ? value 
             : throw new ArgumentOutOfRangeException(nameof(Price));
     }
-    internal float Discount
+    
+    internal int Discount
     {
         get => _discount;
         set => _discount = value is >= 0 and < 100 
             ? value 
             : throw new ArgumentOutOfRangeException(nameof(Discount));
     }
-    internal abstract string Brand { get; set; }
-    internal abstract string Description { get; set; }
-    internal static ProductTypes Type;
+
+    internal double RealPrice => Math.Round(Price * Discount / 100.0, 2);
+    internal string Brand { get; set; }
+    internal string Description { get; set; }
+    internal string MaterialsAsString
+    {
+        get
+        {
+            string toReturn = "";
+
+            for (var i = 0; i < materials.Count() - 1; i++) 
+                toReturn += Enum.GetName(materials.ElementAt(i)) + ", ";
+
+            toReturn += Enum.GetName(materials.ElementAt(^1));
+
+            return toReturn;
+        }
+    }
+    
 }
 
 /* TODO implement Class hierarchy
@@ -33,7 +51,7 @@ internal abstract class Product
  * (Product) Accessory,
  * (Product) MixingProduct,
  * (AudioProduct) RecordingSoundProduct -> RecordingProductType
- *
+ * 
  * 
  * (AudioProduct) ReproducingSoundProduct ->
  *      ReproducingDriver[] drivers,

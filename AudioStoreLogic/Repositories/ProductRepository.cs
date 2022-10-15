@@ -3,7 +3,7 @@ using AudioStoreLogic.Model.Product;
 
 namespace AudioStoreLogic.Repositories;
 
-internal sealed class AudioProductRepository : ICrudRepos<Product>
+internal sealed class ProductRepository : ICrudRepos<Product>
 {
     private readonly List<Product> _arr = new();
 

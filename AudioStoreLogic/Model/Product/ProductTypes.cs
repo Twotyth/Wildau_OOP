@@ -2,5 +2,9 @@
 
 public enum ProductTypes
 {
-    Accessory, Mixer, SoundRecording, Amplifier, Mp3Player 
+    Accessory,
+    Microphone, 
+    Headphones,
+    Speaker,
+    Amplifier,
 }
