@@ -1,6 +1,6 @@
 ﻿namespace AudioStoreLogic.Model.AudioProduct;
 
-internal abstract class AudioIoProduct : Product.Product
+public abstract class AudioIoProduct : Product.Product
 {
     internal int Ohmpedance { get; set; }
     internal Range HzRange { get; set; }
