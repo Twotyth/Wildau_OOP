@@ -21,7 +21,6 @@ public class Microphone
 
     internal Microphone(MicrophoneType type, MicrophoneTypeOperation operationType,
         IEnumerable<SoundPickingPattern> pickingPattern, int sensitivity)
-    {
-        PickingPattern = pickingPattern;
-    }
+        =>
+            (Type, OperationType, PickingPattern, Sensitivity) = (type, operationType, pickingPattern, sensitivity);
 }

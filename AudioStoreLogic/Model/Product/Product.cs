@@ -43,8 +43,7 @@ public abstract class Product
     
 }
 
-/* TODO implement Headphones
- * TODO implement Speakers
+/* TODO implement Speakers
  * AUDIO HI-FI STORE (proj)
  * 
  * CLASS HIERARCHY
