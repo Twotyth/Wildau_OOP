@@ -2,5 +2,5 @@
 
 public enum AttachmentMethod
 {
-    Wing, Piston, None, ByEar, HeadBand, NeckBand
+    Wing, Piston, None, ByEar, HeadBand, Neckband
 }

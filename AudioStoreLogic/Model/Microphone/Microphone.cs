@@ -1,6 +1,8 @@
 ﻿namespace AudioStoreLogic.Model.Microphone;
 
-public class Microphone
+using AudioIoProduct;
+
+public class Microphone : AudioIoProduct
 {
     protected int _sensitivity;
     

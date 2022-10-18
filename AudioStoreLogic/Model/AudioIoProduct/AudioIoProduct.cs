@@ -1,4 +1,4 @@
-﻿namespace AudioStoreLogic.Model.AudioProduct;
+﻿namespace AudioStoreLogic.Model.AudioIoProduct;
 
 public abstract class AudioIoProduct : Product.Product
 {
