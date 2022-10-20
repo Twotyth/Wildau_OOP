@@ -1,4 +1,6 @@
-﻿namespace AudioStoreLogic.Model.Headphones;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace AudioStoreLogic.Model.Headphones;
 
 public class Headphones : AudioIoProduct.AudioIoProduct
 {
@@ -6,6 +8,7 @@ public class Headphones : AudioIoProduct.AudioIoProduct
     public AttachmentMethod Attachment { get; internal set; }
     public SoundSchemeFormat SchemeFormat { get; internal set; }
     internal bool IsAnc;
+    [NotNull]
     internal ILookup<int, Driver> Drivers;
 
     internal Headphones (HeadphonesType type, SoundSchemeFormat schemeFormat, 

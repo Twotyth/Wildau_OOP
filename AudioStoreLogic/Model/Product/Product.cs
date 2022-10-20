@@ -2,10 +2,11 @@ namespace AudioStoreLogic.Model.Product;
 
 public abstract class Product
 {
-    internal string Id = Guid.NewGuid().ToString();
+    internal Guid Id = Guid.NewGuid();
     protected double _price;
     protected int _discount;
-    internal IEnumerable<MaterialTypes> materials;
+    protected IEnumerable<MaterialTypes> _materials;
+    protected IEnumerable<Review.Review> _reviews;
 
     internal double Price
     {
@@ -32,10 +33,10 @@ public abstract class Product
         {
             string toReturn = "";
 
-            for (var i = 0; i < materials.Count() - 1; i++) 
-                toReturn += Enum.GetName(materials.ElementAt(i)) + ", ";
+            for (var i = 0; i < _materials.Count() - 1; i++) 
+                toReturn += Enum.GetName(_materials.ElementAt(i)) + ", ";
 
-            toReturn += Enum.GetName(materials.ElementAt(^1));
+            toReturn += Enum.GetName(_materials.ElementAt(^1));
 
             return toReturn;
         }
@@ -66,7 +67,7 @@ public abstract class Product
  * ^ (abstracts to) ^
  * 
  * 
- * (abstract) AudioProduct -> Ohmpedance, HzRange, ConnectorType[] IO, HzRangeAsString(), IOAsString()
+ * (abstract) AudioIOProduct -> Ohmpedance, HzRange, ConnectorType[] IO, HzRangeAsString(), IOAsString()
  * ^
  * (abstract) Product -> ID, Price, Dicsount, Brand, Description, MaterialType[] Materials
  *      {

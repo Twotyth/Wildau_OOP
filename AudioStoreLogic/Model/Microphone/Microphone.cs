@@ -1,19 +1,22 @@
-﻿namespace AudioStoreLogic.Model.Microphone;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace AudioStoreLogic.Model.Microphone;
 
 using AudioIoProduct;
 
 public class Microphone : AudioIoProduct
 {
-    protected int _sensitivity;
+    private int _sensitivity;
     
     public MicrophoneType Type { get; internal set; }
     public MicrophoneTypeOperation OperationType { get; internal set; }
+    [NotNull]
     internal IEnumerable<SoundPickingPattern> PickingPattern { get; set; }
 
-    public int Sensitivity
+    protected int Sensitivity
     {
         get => _sensitivity;
-        internal set
+        set
         {
             if (value is > -6 or < -120) 
                 throw new ArgumentOutOfRangeException(nameof(_sensitivity), value, "was out of range");

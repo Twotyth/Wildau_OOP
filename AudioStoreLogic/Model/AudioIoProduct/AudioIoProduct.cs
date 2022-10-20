@@ -9,13 +9,14 @@ public abstract class AudioIoProduct : Product.Product
 
     internal string HzRangeAsString => HzRange.Start + " - " + HzRange.End;
 
+    // TODO string join impl
     internal string IoAsString
     {
         get
         {
             string toReturn = "";
 
-            for (var i = 0; i < Io.Count() - 1; i++) 
+            for (var i = 0; i < Io.Count() ; i++) 
                 toReturn += IOConverter(Io.ElementAt(i)) + ", ";
 
             toReturn += IOConverter(Io.ElementAt(^1));
