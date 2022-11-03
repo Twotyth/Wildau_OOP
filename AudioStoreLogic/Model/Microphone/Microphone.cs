@@ -11,12 +11,12 @@ public class Microphone : AudioIoProduct
     public MicrophoneType Type { get; internal set; }
     public MicrophoneTypeOperation OperationType { get; internal set; }
     [NotNull]
-    internal IEnumerable<SoundPickingPattern> PickingPattern { get; set; }
+    public IEnumerable<SoundPickingPattern> PickingPattern { get; internal set; }
 
-    protected int Sensitivity
+    public int Sensitivity
     {
         get => _sensitivity;
-        set
+        internal set
         {
             if (value is > -6 or < -120) 
                 throw new ArgumentOutOfRangeException(nameof(_sensitivity), value, "was out of range");
@@ -24,7 +24,7 @@ public class Microphone : AudioIoProduct
         }
     }
 
-    internal Microphone(MicrophoneType type, MicrophoneTypeOperation operationType,
+    public Microphone(MicrophoneType type, MicrophoneTypeOperation operationType,
         IEnumerable<SoundPickingPattern> pickingPattern, int sensitivity)
         =>
             (Type, OperationType, PickingPattern, Sensitivity) = (type, operationType, pickingPattern, sensitivity);

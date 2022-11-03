@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace AudioStoreLogic.Model.Product;
 
 public abstract class Product
@@ -7,26 +9,45 @@ public abstract class Product
     protected int _discount;
     protected IEnumerable<MaterialTypes> _materials;
     protected IEnumerable<Review.Review> _reviews;
+    protected IEnumerable<Color> _colors;
 
-    internal double Price
+    public double Price
     {
         get => _price;
-        set => _price = value > 0 
+        internal set => _price = value > 0 
             ? value 
             : throw new ArgumentOutOfRangeException(nameof(Price));
     }
     
-    internal int Discount
+    public int Discount
     {
         get => _discount;
-        set => _discount = value is >= 0 and < 100 
+        internal set => _discount = value is >= 0 and < 100 
             ? value 
             : throw new ArgumentOutOfRangeException(nameof(Discount));
     }
+    
+
 
     public double RealPrice => Math.Round(Price * Discount / 100.0, 2);
     public string Brand { get; internal set; }
     public string Description { get; internal set; }
+
+    public string ColorsAsString
+    {
+        get
+        {
+            string toReturn = "";
+
+            for (int i = 0; i < _colors.Count() - 1; i++)
+            {
+                toReturn += _colors.ElementAt(i) + ", ";
+            }
+
+            return toReturn + _colors.Last();
+        }
+    }
+    
     public string MaterialsAsString
     {
         get
@@ -43,34 +64,3 @@ public abstract class Product
     }
     
 }
-
-/* TODO implement Speakers
- * AUDIO HI-FI STORE (proj)
- * 
- * CLASS HIERARCHY
- * 
- * (Product) Accessory,
- * (Product) MixingProduct,
- * (AudioProduct) RecordingSoundProduct -> RecordingProductType
- * 
- * 
- * (AudioProduct) ReproducingSoundProduct ->
- *      ReproducingDriver[] drivers,
- *      
- *      DriversAsString(),
- *      
- * {
- *      ReproducingDriver -> size, type
- * }
- * 
- * 
- * ^ (abstracts to) ^
- * 
- * 
- * (abstract) AudioIOProduct -> Ohmpedance, HzRange, ConnectorType[] IO, HzRangeAsString(), IOAsString()
- * ^
- * (abstract) Product -> ID, Price, Dicsount, Brand, Description, MaterialType[] Materials
- *      {
- *          (enum) MaterialType: Wood, Plastic, Metal, Leather, Glass, Gold,
- *      }
- */

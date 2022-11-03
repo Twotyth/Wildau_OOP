@@ -1,4 +1,4 @@
-﻿namespace AudioStoreLogic.Model.Headphones;
+﻿namespace AudioStoreLogic.Model.AudioIoProduct;
 
 public enum Driver
 {

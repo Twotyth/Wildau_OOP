@@ -2,7 +2,7 @@
 
 namespace AudioStoreLogic.Repositories;
 
-internal sealed class ProductReviewRepository : ICrudRepos<Review>
+public sealed class ProductReviewRepository : ICrudRepos<Review>
 {
     private readonly List<Review> _arr = new();
     public void Add(Review obj) => _arr.Add(obj);

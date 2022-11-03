@@ -1,18 +1,14 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace AudioStoreLogic.Model.Headphones;
+﻿namespace AudioStoreLogic.Model.Speakers;
 
 using AudioIoProduct;
 
-public class Headphones : AudioIoProduct
+public class Speakers : AudioIoProduct
 {
-    public HeadphonesType Type { get; internal set; }
-    public AttachmentMethod Attachment { get; internal set; }
-    public SoundSchemeFormat SchemeFormat { get; internal set; }
-    internal bool IsAnc;
-    [NotNull]
-    protected IEnumerable<(Driver, float, int)> _drivers;
-
+    public bool IsWaterResistant { get; internal set; }
+    public bool IsSmart { get; internal set; }
+    public SpeakersTypes Type { get; internal set; }
+    public IEnumerable<(Driver, float, int)> _drivers;
+    
     public string DriversAsString
     {
         get
@@ -23,12 +19,9 @@ public class Headphones : AudioIoProduct
             return toReturn + DriverConverter(_drivers.Last());
         }
     }
-    
-    public Headphones (HeadphonesType type, SoundSchemeFormat schemeFormat, 
-        AttachmentMethod attachment, bool isAnc, IEnumerable<(Driver,float, int)> drivers)
-    {
-        (Type, SchemeFormat, Attachment, IsAnc, _drivers) = (type, schemeFormat, attachment, isAnc, drivers);
-    }
+
+    public Speakers(bool isWaterResistant, bool isSmart, SpeakersTypes type, IEnumerable<(Driver, float, int)> drivers)
+        => (IsWaterResistant, IsSmart, Type, _drivers) = (isWaterResistant, isSmart, type, drivers);
 
     protected string DriverConverter((Driver, float, int) driver) =>
         driver.Item3 + " " + driver.Item1 switch
@@ -42,3 +35,4 @@ public class Headphones : AudioIoProduct
         } + driver.Item2 + " mm";
 
 }
+

@@ -2,15 +2,12 @@
 
 public abstract class AudioIoProduct : Product.Product
 {
-    internal int Ohmpedance { get; set; }
-    internal Range HzRange { get; set; }
-    internal ConnectionType ConnectionType { get; set; }
-    internal IEnumerable<ConnectorTypes> Io { get; set; }
-
-    internal string HzRangeAsString => HzRange.Start + " - " + HzRange.End;
-
-    // TODO string join impl
-    internal string IoAsString
+    public int Ohmpedance { get; internal set; }
+    public Range HzRange { get; internal set; }
+    public ConnectionType ConnectionType { get; internal set; }
+    public IEnumerable<ConnectorTypes> Io { get; internal set; }
+    public string HzRangeAsString => HzRange.Start + " - " + HzRange.End;
+    public string IoAsString
     {
         get
         {
@@ -30,6 +27,7 @@ public abstract class AudioIoProduct : Product.Product
         ConnectorTypes.Adat => "ADAT",
         ConnectorTypes.Aux => "AUX",
         ConnectorTypes.Bnc => "BNC",
+        ConnectorTypes.AC220V => "Circuit",
         ConnectorTypes.Mmcx => "MMCX",
         ConnectorTypes.Xlr => "XLR",
         ConnectorTypes.BPin => "B-Pin",

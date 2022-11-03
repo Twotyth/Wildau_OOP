@@ -1,5 +1,4 @@
-﻿using AudioStoreLogic.Model;
-using AudioStoreLogic.Model.Product;
+﻿using AudioStoreLogic.Model.Product;
 
 namespace AudioStoreLogic.Repositories;
 

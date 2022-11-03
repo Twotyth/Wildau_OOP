@@ -2,10 +2,10 @@
 
 public struct Review
 {
-   internal Review(string content, string authorId, ReviewStars stars) 
+   internal Review(string content, Guid authorId, ReviewStars stars) 
         => (Content, AuthorID, Stars) = (content, authorId, stars);
-
-   internal string Content { get; set; }
-    internal string AuthorID { get; init; }
-    internal ReviewStars Stars { get; set; } 
+   
+    public string Content { get; internal set; }
+    public Guid AuthorID { get; internal init; }
+    public ReviewStars Stars { get; internal set; } 
 }

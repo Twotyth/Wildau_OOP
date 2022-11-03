@@ -7,6 +7,7 @@ public enum ConnectorTypes
     Aux, 
     Xlr, 
     Adat, 
+    AC220V,
     Bnc,
     Mmcx,
     BPin,
